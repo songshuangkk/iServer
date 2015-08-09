@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/iServer', function (req, res, next) {
+  res.render('iServer/iServer');
+});
+
 module.exports = router;

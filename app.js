@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var Config = require('./config');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -56,8 +58,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.listen(Config.PORT, function (data) {
-  console.log('监听端口',data);
+app.listen(Config.PORT, function () {
+  console.log('正在监听端口' + Config.PORT);
 });
 
 

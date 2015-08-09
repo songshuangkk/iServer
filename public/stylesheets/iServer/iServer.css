@@ -1,0 +1,19 @@
+/*设置标题文字*/
+
+.server_form_warpper {
+    margin-top: 150px;
+   text-align: center;
+}
+
+/*搜索内容*/
+.input_search_text {
+    margin-left: 5%;
+    width: 200px;
+    height: 30px;
+}
+
+/*搜索按钮*/
+.input_search_button {
+    margin-left: 20px;
+    font-size: larger;
+}

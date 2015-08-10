@@ -13,7 +13,7 @@ router.get('/iServer', function (req, res, next) {
 });
 
 router.get('/iServer/search', function (req, res, next) {
-  iserver.search();
+  iserver.search(req, res, next);
   res.render('iServer/iServer');
 });
 

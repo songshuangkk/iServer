@@ -2,6 +2,7 @@
  * Created by songshuang on 15/8/9.
  */
 
-exports.search = function () {
-    console.log('user is used to search iServer!');
+exports.search = function (req, res, next) {
+    var searchName = req.query.search_text;
+
 };

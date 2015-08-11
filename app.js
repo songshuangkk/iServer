@@ -63,6 +63,6 @@ app.listen(Config.PORT, function () {
 });
 
 
-//测试
+//增加对mongodb的配置
 
 module.exports = app;

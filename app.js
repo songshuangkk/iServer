@@ -4,7 +4,7 @@ var favicon       = require('serve-favicon');
 var logger        = require('morgan');
 var cookieParser  = require('cookie-parser');
 var bodyParser    = require('body-parser');
-var mongodb       = require('mongodb');
+var mongoose      = require('mongoose');
 
 var Config        = require('./config');
 
@@ -33,6 +33,15 @@ app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
+});
+
+//连接数据库
+mongoose.connect(Config.MongoHost+Config.MongoPort, function(err, data) {
+  if (!err) {
+    console.log('连接数据库成功!');
+  } else {
+    console.log('连接数据库失败!');
+  }
 });
 
 // error handlers

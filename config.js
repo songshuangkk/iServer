@@ -5,7 +5,7 @@
 
 var config = {
 
-    MongoHost: '127.0.0.1',
+    MongoHost: 'mongodb://127.0.0.1/test',
     MongoPort: '',
 
 

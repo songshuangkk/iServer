@@ -25,6 +25,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//连接数据库
+var db = mongoose.connect(Config.MongoHost+Config.MongoPort, function(err, data) {
+  if (!err) {
+    console.log('连接数据库成功!');
+  } else {
+    console.log('连接数据库失败!');
+  }
+});
+
+app.use(function (req, res, next){
+  if (db) {
+    req.db = db;
+  }
+  next();
+});
+
 app.use('/', routes);
 app.use('/users', users);
 
@@ -34,16 +50,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-//连接数据库
-mongoose.connect(Config.MongoHost+Config.MongoPort, function(err, data) {
-  if (!err) {
-    console.log('连接数据库成功!');
-  } else {
-    console.log('连接数据库失败!');
-  }
-});
-
 // error handlers
 
 // development error handler

@@ -1,5 +1,11 @@
-/*设置标题文字*/
 
+body {
+    background-color: transparent;
+}
+
+
+
+/*设置标题文字*/
 .server_form_warpper {
     margin-top: 150px;
    text-align: center;

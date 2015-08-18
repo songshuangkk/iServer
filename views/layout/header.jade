@@ -6,12 +6,12 @@ head
    title='iServer Admin'
    meta(charset='utf-8')
    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
-   link(rel="stylesheet" href="/stylesheet/iServer.css")
+   link(rel="stylesheet" href="/stylesheets/iServer/iServer.css")
+   script(type='text/javascript' src='http://code.jquery.com/jquery-2.1.4.min.js')
    block headContent
-
 body
    nav(class='navbar navbar-default')
-   div(class='navbar-header')
-      a(class='navbar-brand' href='#')=songshuangkk
+      div(class='navbar-header')
+         button(type='button' class='navbar-toogle' data-toggle='collapse' id='new_interface_button') 创建新接口
    block bodyContent
 

@@ -1,0 +1,14 @@
+//Created by songshuang on 15/8/9.
+extends  ../layout/header
+block headContent
+    link(rel='stylesheet', href='/stylesheets/iServer/iServer.css')
+    include home
+block bodyContent
+    div(class='header')
+    div(class='server_form_warpper')
+        div(class='iServer')
+            h1='iServer'
+            div
+                form(class='search_form' action='/iServer/search')
+                    input(type='text' value='' class='input_search_text' name='search_text')
+                    input(type='submit' value='搜索11111' class='input_search_button')

@@ -17,4 +17,8 @@ router.get('/iServer/search', function (req, res, next) {
   res.render('iServer/iServer');
 });
 
+router.get('/iServer/new_interface', function (req, res, next) {
+  res.render('0');
+});
+
 module.exports = router;

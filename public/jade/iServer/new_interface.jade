@@ -1,0 +1,27 @@
+//
+   Created by songshuang on 15/8/19.
+script(type='text/javascript').
+
+   init_event();
+
+   /*
+   *
+   * 绑定相关的按钮事件
+   *
+   * */
+   function init_event() {
+
+      //创建接口按钮
+      $(document).on('click', '.save_new_interface', click_save_new_interface);
+
+      //添加参数按钮
+      $(document).on('click', '#add_param', click_add_param);
+   }
+
+   function click_save_new_interface() {
+      var data = $(this);
+   }
+
+   function click_add_param() {
+      var data = $(this);
+   }

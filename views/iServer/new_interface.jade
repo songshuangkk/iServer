@@ -1,14 +1,36 @@
 //Created by songshuang on 15/8/9.
 extends  ../layout/header
+
 block headContent
-    link(rel='stylesheet', href='/stylesheets/iServer/iServer.css')
-    include home
+    link(type='stylesheet' href='/stylesheets/iServer/new_interface.css')
+    include ../../public/jade/iServer/new_interface
+
 block bodyContent
-    div(class='header')
-    div(class='server_form_warpper')
-        div(class='iServer')
-            h1='iServer'
-            div
-                form(class='search_form' action='/iServer/search')
-                    input(type='text' value='' class='input_search_text' name='search_text')
-                    input(type='submit' value='搜索11111' class='input_search_button')
+    div
+        form(role='form')
+            div(class='form-group')
+                label 接口名
+                div
+                    input(type='text' name='interface_name' id='interface_name' class='form-control' placeholder='请输入新接口名')
+            div(class='form-group')
+                label 返回值类型
+                div
+                    input(type='text' name='return_value_type' id='return_value_type' class='form-control' placeholder='请输入返回值类型')
+                label 返回值
+                div
+                    input(type='text' name='return_value' id='return_value' class='form-control' placeholder='请输入返回值')
+            div(class='form-group')
+                div
+                    label 参数类型
+                    input(type='text' name='param_value_type' class='form-control' placeholder='请输入参数类型')
+                    label 参数名
+                    input(type='text' name='param_value_name' class='form-control' placeholder='请输入参数名')
+                div
+                    button(class='btn btn-default' id='add_param') 添加参数
+
+           div(class='form-group')
+               label 接口描述
+               div
+                   textarea(name='des_interface' id='des_interface' class='form-control' placeholder='接口描述')
+
+            button(type='submit' class='btn btn-default save_new_interface') 创建

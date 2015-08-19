@@ -18,24 +18,12 @@ script(type='text/javascript').
       *
       */
       $(document).on('click', '#new_interface_button', function(){
-         console.log('click');
          new_interface_button();
       });
    }
 
 
    function new_interface_button () {
-      var ret = $.ajax({
-         url: '/iServer/new_interface',
-         type: 'GET'
-      });
-
-      ret.done(function(data) {
-
-      });
-
-      ret.error(function(data){
-
-      });
+     window.location = '/iServer/new_interface';
    }
 

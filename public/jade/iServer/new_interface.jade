@@ -20,10 +20,11 @@ script(type='text/javascript').
 
    function click_save_new_interface() {
       var data = {};
-      data.interface_name   = '';
-      data.return_name      = '';
-      data.return_type      = '';
-      data.interface_des    = '';
+      data.interface_name   = $('#interface_name').value();
+      data.return_name      = $('#return_value').value();
+      data.return_type      = $('#return_value_type').value();
+      data.interface_des    = $('#des_interface').value();
+      
 
       var ret = $.ajax({
          url: '/iServer/save_new_interface',

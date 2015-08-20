@@ -1,0 +1,26 @@
+
+/*设置创建接口页面布局样式*/
+.new_interface_form {
+    margin-left: 18%;
+    margin-right: 15%;
+    border-style: solid;
+    border-color: #1e728c;
+}
+
+.form-group {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.new_interface_param {
+    padding-left: 10px;
+}
+
+.add_param {
+    padding-top: 15px;
+    padding-left: 20px;
+}
+
+.save_new_interface {
+    margin-left: 50%;
+}

@@ -7,5 +7,9 @@ exports.search = function (req, res, next) {
 };
 
 exports.save_new_interface = function (req, res, next) {
-    console.log('save_new_interface');
+    var new_interface_data = {};
+    new_interface_data.interface_name = '';
+    new_interface_data.interface_type = '';
+    new_interface_data.interface_desc = '';
+    new_interface_data.param          = [];
 };

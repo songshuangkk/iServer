@@ -3,9 +3,8 @@
  */
 
 var mongoose            = require('mongoose');
-var Interface_Mondel    = mongoose.model('Interface');
 
 
-exports.insert_interface = function() {
+exports.insert_interface = function(data) {
 
 };

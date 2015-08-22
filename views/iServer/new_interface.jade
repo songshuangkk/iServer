@@ -3,7 +3,7 @@ extends  ../layout/header
 
 block headContent
     link(rel='stylesheet', href='/stylesheets/iServer/new_interface.css')
-    include ../../public/jade/iServer/new_interface
+    script(src="/javascript/iServer/new_interface.js")
 
 block bodyContent
     div
@@ -27,7 +27,7 @@ block bodyContent
                         label(class='new_interface_param') 参数名
                         input(type='text' name='param_value_name' class='form-control' placeholder='请输入参数名')
                     div.add_param
-                        a(href='#' id='add_param') 添加参数
+                        a(href='#' id='add_param')添加参数
                 div.form-group
                    label.new_interface_param 接口描述
                    div

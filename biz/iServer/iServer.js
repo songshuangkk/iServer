@@ -12,6 +12,7 @@ exports.save_new_interface = function (req, res, next) {
     var data = req.body;
 
     var new_interface_data = {};
+    console.log(data);
     new_interface_data.interface_name       = data.interface_name;
     new_interface_data.return_type          = data.return_type;
     new_interface_data.return_name          = data.return_name;

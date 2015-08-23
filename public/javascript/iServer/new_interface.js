@@ -36,7 +36,7 @@
 
       ret.done(function(data){
          if (data.success) {
-
+            window.location="/iServer";
          }
       });
 

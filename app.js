@@ -4,7 +4,8 @@ var favicon       = require('serve-favicon');
 var logger        = require('morgan');
 var cookieParser  = require('cookie-parser');
 var bodyParser    = require('body-parser');
-var mongoose      = require('mongoose');
+
+require('./config/model_config');
 
 var Config        = require('./config');
 
@@ -24,15 +25,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-//连接数据库
-var db = mongoose.connect(Config.MongoHost+Config.MongoPort, function(err, data) {
-  if (!err) {
-    console.log('连接数据库成功!');
-  } else {
-    console.log('连接数据库失败!');
-  }
-});
 
 app.use(function (req, res, next){
   if (db) {

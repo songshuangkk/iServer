@@ -5,7 +5,7 @@
 
 var config = {
 
-    MongoHost: 'mongodb://127.0.0.1/test',
+    MongoHost: 'mongodb://localhost/iServer',
     MongoPort: '',
 
 

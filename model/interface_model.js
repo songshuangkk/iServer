@@ -14,4 +14,4 @@ var InterfaceSchema = new Schema({
 
 });
 
-exports.Interface = mongoose.model('Interface', InterfaceSchema);
+exports.Interface = mongoose.model('Interfaces', InterfaceSchema, 'Interfaces');

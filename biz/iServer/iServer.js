@@ -12,7 +12,6 @@ exports.save_new_interface = function (req, res, next) {
     var data = req.body;
 
     var new_interface_data = {};
-    console.log(data);
     new_interface_data.interface_name       = data.interface_name;
     new_interface_data.return_type          = data.return_type;
     new_interface_data.return_name          = data.return_name;
@@ -20,5 +19,6 @@ exports.save_new_interface = function (req, res, next) {
     new_interface_data.interface_param      = data.interface_param;
 
     //进行插入mongodb
-    db.insert_interface(JSON.stringify(data));
+    db.insert_interface(new_interface_data);
+
 };

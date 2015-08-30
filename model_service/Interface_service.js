@@ -8,7 +8,6 @@
 
 
 var Interface_model = require('../model/interface_model');
-var Interface = Interface_model.Interface;
 
 /**
  *
@@ -16,11 +15,7 @@ var Interface = Interface_model.Interface;
  *
  */
 exports.insert_new_interface = function(interface, callback){
-    if (typeof callback === 'function') {
-        Interface.save(interface, callback);
-    } else {
-        Interface.save(interface);
-    }
+    interface.save(callback);
 };
 
 /**
@@ -28,11 +23,8 @@ exports.insert_new_interface = function(interface, callback){
  * 查找接口
  *
  */
-exports.find_interface = function (search_param, callback) {
-    if (!search_param) {
-        callback(null);
-    }
-    Interface.find(search_param, callback);
+exports.find_interface = function () {
+
 };
 
 /**

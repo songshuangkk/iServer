@@ -23,8 +23,8 @@ exports.insert_new_interface = function(interface, callback){
  * 查找接口
  *
  */
-exports.find_interface = function () {
-
+exports.find_interface = function (param, callback) {
+    Interface_model.find(param, callback);
 };
 
 /**
@@ -34,7 +34,7 @@ exports.find_interface = function () {
  *
  */
 
-exports.update_interface = function() {
+exports.update_interface = function(param, callback) {
 
 };
 
@@ -44,6 +44,6 @@ exports.update_interface = function() {
  * 删除接口
  *
  */
-exports.delete_interface = function (){
-
+exports.remove_interface = function (param, callback){
+    Interface_model.remove(param, callback);
 };

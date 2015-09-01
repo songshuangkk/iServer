@@ -10,7 +10,8 @@ var InterfaceSchema = new Schema({
     interface_name: {type: String},
     interface_desc: {type: String},
     return_type: {type: String},
-    return_name: {type: String}
+    return_name: {type: String},
+    interface_param: {type: String}
 
 });
 

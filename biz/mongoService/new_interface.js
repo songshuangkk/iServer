@@ -6,6 +6,12 @@ var Interface_service   = require('../../model_service/Interface_service');
 var Interface_Schema    = require('../../model/interface_model').Interface;
 
 
+/**
+ *
+ * 添加新接口
+ *
+ * @param data
+ */
 exports.insert_interface = function(data) {
 
     var insert_data = new Interface_Schema();
@@ -13,6 +19,7 @@ exports.insert_interface = function(data) {
     insert_data.interface_desc   = data.interface_desc;
     insert_data.return_type      = data.return_type;
     insert_data.return_name      = data.return_name;
+    insert_data.interface_param  = data.interface_param;
 
     try{
         Interface_service.insert_new_interface(insert_data, function(err) {
@@ -25,5 +32,77 @@ exports.insert_interface = function(data) {
     } catch (e) {
         console.error(e);
     }
+
+};
+
+
+/**
+ *
+ * 删除接口
+ *
+ * @param data
+ */
+exports.remove_interface = function(data){
+
+    var param = {
+      interface_name: data.interface_name
+    };
+
+    Interface_service.remove_interface(param, function(err) {
+        if (err) {
+            console.error('remove interface failed!');
+            throw err;
+        }
+        console.log('remove interface success!');
+    });
+};
+
+/**
+ *
+ * 更新/修改接口
+ *
+ * @param data
+ */
+exports.update_interface = function(data){
+
+    var param = {
+        interface_name: data.interface_name,
+        interface_name: data.interface_name,
+        interface_desc: data.interface_desc,
+        return_type: data.return_type,
+        return_name: data.return_name,
+        interface_param: data.interface_param
+    };
+
+    Interface_service.update_interface(param, function(err){
+        if (err) {
+            console.error('update interface failed!');
+            throw err;
+        }
+        console.log('update interface success');
+    });
+};
+
+
+/**
+ *
+ * 查找接口
+ *
+ * @param data
+ */
+exports.find_interface = function(data){
+
+    var param = {
+      interface_name: data.interface_name
+    };
+
+    Interface_service.find_interface(data, function(err, docs){
+        if (err){
+            console.error('find interface failed');
+            throw err;
+        }
+        console.log('find interface success');
+    });
+
 
 };

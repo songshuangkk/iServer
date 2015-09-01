@@ -18,4 +18,4 @@ db.once('open', function(err){
 
 require('../model/interface_model');
 
-exports.Interface = mongoose.model('Interface');
+exports.Interface = mongoose.model('Interfaces');

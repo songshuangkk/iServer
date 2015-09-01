@@ -34,8 +34,8 @@ exports.find_interface = function (param, callback) {
  *
  */
 
-exports.update_interface = function(param, callback) {
-
+exports.update_interface = function(param, updata,callback) {
+    Interface_model.update(param, updata, callback);
 };
 
 /**

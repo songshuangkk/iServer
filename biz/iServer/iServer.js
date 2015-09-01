@@ -2,11 +2,7 @@
  * Created by songshuang on 15/8/9.
  */
 
-var db = require('../mongoService/new_interface');
-
-exports.search = function (req, res, next) {
-
-};
+var interface_service = require('../mongoService/new_interface');
 
 exports.save_new_interface = function (req, res, next) {
     var data = req.body;
@@ -19,6 +15,25 @@ exports.save_new_interface = function (req, res, next) {
     new_interface_data.interface_param      = data.interface_param;
 
     //进行插入mongodb
-    db.insert_interface(new_interface_data);
+    interface_service.insert_interface(new_interface_data);
 
+};
+
+
+exports.update_interface = function (req, res, next) {
+    var data = req.body;
+
+    interface_service.update_interface(data);
+};
+
+exports.find_interface = function (req, res, next) {
+    var data = req.body;
+
+    interface_service.find_interface(data);
+};
+
+exprts.remove_interface = function (req, res, next) {
+    var data = req.body;
+
+    interface_service.remove_interface(data);
 };

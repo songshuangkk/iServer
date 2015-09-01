@@ -65,16 +65,11 @@ exports.remove_interface = function(data){
  */
 exports.update_interface = function(data){
 
-    var param = {
-        interface_name: data.interface_name,
-        interface_name: data.interface_name,
-        interface_desc: data.interface_desc,
-        return_type: data.return_type,
-        return_name: data.return_name,
-        interface_param: data.interface_param
-    };
+    var param = data.param;
 
-    Interface_service.update_interface(param, function(err){
+    var data = data.data;
+
+    Interface_service.update_interface(param, data,function(err){
         if (err) {
             console.error('update interface failed!');
             throw err;

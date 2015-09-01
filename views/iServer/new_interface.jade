@@ -10,26 +10,33 @@ block bodyContent
         div.new_interface_form
             form(role='form')
                 div.form-group
-                    label.new_interface_param 接口名
+                    label.new_interface_param
+                    |接口名
                     div
                         input.form-control(type='text' name='interface_name' id='interface_name' placeholder='请输入新接口名')
                 div.form-group
-                    label.new_interface_param 返回值类型
+                    label.new_interface_param
+                    | 返回值类型
                     div
-                        input(type='text' name='return_value_type' id='return_value_type' class='form-control' placeholder='请输入返回值类型')
-                    label.new_interface_param 返回值
+                        input.form-control(type='text' name='return_value_type' id='return_value_type' placeholder='请输入返回值类型')
+                    label.new_interface_param
+                    | 返回值
                     div
-                        input(type='text' name='return_value' id='return_value' class='form-control' placeholder='请输入返回值')
+                        input.form-control(type='text' name='return_value' id='return_value' placeholder='请输入返回值')
                 div.form-group
                     div.param_div
-                        label.new_interface_param 参数类型
-                        input(type='text' name='param_value_type' class='form-control' placeholder='请输入参数类型')
-                        label(class='new_interface_param') 参数名
-                        input(type='text' name='param_value_name' class='form-control' placeholder='请输入参数名')
+                        label.new_interface_param
+                        | 参数类型
+                        input.form-control(type='text' name='param_value_type' placeholder='请输入参数类型')
+                        label.new_interface_param
+                        | 参数名
+                        input.form-control(type='text' name='param_value_name' placeholder='请输入参数名')
                     div.add_param
-                        a(href='#' id='add_param')添加参数
+                        a(href='#' id='add_param')
+                        | 添加参数
                 div.form-group
-                   label.new_interface_param 接口描述
+                   label.new_interface_param
+                   | 接口描述
                    div
                        textarea(name='des_interface' id='des_interface' class='form-control' placeholder='接口描述')
                 button.save_new_interface.btn.btn-default(type='submit') 创建

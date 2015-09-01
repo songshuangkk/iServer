@@ -7,7 +7,12 @@
 
 
 
-var Interface_model = require('../model/interface_model');
+var Schema = require('../model/interface_model').Interface;
+
+
+exports.interface_list = function (callback) {
+  Schema.find(callback);
+};
 
 /**
  *
@@ -24,7 +29,7 @@ exports.insert_new_interface = function(interface, callback){
  *
  */
 exports.find_interface = function (param, callback) {
-    Interface_model.find(param, callback);
+    Schema.find(param, callback);
 };
 
 /**
@@ -35,7 +40,7 @@ exports.find_interface = function (param, callback) {
  */
 
 exports.update_interface = function(param, updata,callback) {
-    Interface_model.update(param, updata, callback);
+    Schema.update(param, updata, callback);
 };
 
 /**
@@ -45,5 +50,5 @@ exports.update_interface = function(param, updata,callback) {
  *
  */
 exports.remove_interface = function (param, callback){
-    Interface_model.remove(param, callback);
+    Schema.remove(param, callback);
 };

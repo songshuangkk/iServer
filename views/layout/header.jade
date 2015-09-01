@@ -9,10 +9,14 @@ head
    link(rel="stylesheet" href="/stylesheets/iServer/iServer.css")
    script(type='text/javascript' src='/lib/js/underscore.js')
    script(type='text/javascript' src='http://code.jquery.com/jquery-2.1.4.min.js')
+   include home
    block headContent
 body
-   nav(class='navbar navbar-default')
-      div(class='navbar-header')
+   nav.navbar.navbar-default
+      div.navbar-header
          a(type='button' class='navbar-toogle' data-toggle='collapse' id='new_interface_button') 创建新接口
+
+      div.navbar-header
+         a.navbar-toogle(type='button' id='interface_list') 所有接口
    block bodyContent
 

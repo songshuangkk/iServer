@@ -4,9 +4,7 @@
 
 var mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
-
-var InterfaceSchema = new Schema({
+var Schema = new mongoose.Schema({
     interface_name: {type: String},
     interface_desc: {type: String},
     return_type: {type: String},
@@ -15,4 +13,4 @@ var InterfaceSchema = new Schema({
 
 });
 
-exports.Interface = mongoose.model('Interfaces', InterfaceSchema, 'Interfaces');
+exports.Interface = mongoose.model('Interfaces', Schema, 'Interfaces');

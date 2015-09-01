@@ -5,6 +5,21 @@
 var Interface_service   = require('../../model_service/Interface_service');
 var Interface_Schema    = require('../../model/interface_model').Interface;
 
+exports.interface_list = function (req, res) {
+    var list = "";
+    Interface_service.interface_list(function (err, docs){
+        if (err) {
+            console.error('interface list failed');
+            throw err;
+        }
+        list = docs;
+        //return res.render('../public/javascript/interface_list', {
+        //    list: docs
+        //});
+    });
+
+};
+
 
 /**
  *
@@ -19,7 +34,7 @@ exports.insert_interface = function(data) {
     insert_data.interface_desc   = data.interface_desc;
     insert_data.return_type      = data.return_type;
     insert_data.return_name      = data.return_name;
-    insert_data.interface_param  = data.interface_param;
+    insert_data.interface_param  = JSON.stringify(data.interface_param);
 
     try{
         Interface_service.insert_new_interface(insert_data, function(err) {

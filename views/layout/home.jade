@@ -20,10 +20,18 @@ script(type='text/javascript').
       $(document).on('click', '#new_interface_button', function(){
          new_interface_button();
       });
+
+      $(document).on('click', '#interface_list', function(){
+         interface_list();
+      });
    }
 
 
    function new_interface_button () {
      window.location = '/iServer/new_interface';
+   }
+
+   function interface_list() {
+      window.location = '/iServer/interface_list';
    }
 

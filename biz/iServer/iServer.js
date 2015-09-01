@@ -4,6 +4,10 @@
 
 var interface_service = require('../mongoService/new_interface');
 
+exports.interface_list = function (req, res, next) {
+    interface_service.interface_list();
+};
+
 exports.save_new_interface = function (req, res, next) {
     var data = req.body;
 
@@ -32,7 +36,7 @@ exports.find_interface = function (req, res, next) {
     interface_service.find_interface(data);
 };
 
-exprts.remove_interface = function (req, res, next) {
+exports.remove_interface = function (req, res, next) {
     var data = req.body;
 
     interface_service.remove_interface(data);

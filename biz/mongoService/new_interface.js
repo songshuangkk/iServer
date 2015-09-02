@@ -6,16 +6,15 @@ var Interface_service   = require('../../model_service/Interface_service');
 var Interface_Schema    = require('../../model/interface_model').Interface;
 
 exports.interface_list = function (req, res) {
-    var list = "";
     Interface_service.interface_list(function (err, docs){
         if (err) {
             console.error('interface list failed');
             throw err;
         }
-        list = docs;
-        //return res.render('../public/javascript/interface_list', {
-        //    list: docs
-        //});
+
+        res.render('iServer/interface_list', {
+            list: docs
+        });
     });
 
 };

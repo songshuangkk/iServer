@@ -5,7 +5,7 @@
 var interface_service = require('../mongoService/new_interface');
 
 exports.interface_list = function (req, res, next) {
-    interface_service.interface_list();
+    interface_service.interface_list(req, res);
 };
 
 exports.save_new_interface = function (req, res, next) {

@@ -2,6 +2,8 @@
  * Created by songshuang on 15/8/20.
  */
 
+var _                   = require('underscore');
+
 var Interface_service   = require('../../model_service/Interface_service');
 var Interface_Schema    = require('../../model/interface_model').Interface;
 
@@ -11,9 +13,8 @@ exports.interface_list = function (req, res) {
             console.error('interface list failed');
             throw err;
         }
-
         res.render('iServer/interface_list', {
-            list: docs
+            docs: docs
         });
     });
 

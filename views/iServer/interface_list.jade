@@ -1,6 +1,7 @@
 //
    Created by songshuang on 15/9/1.
 extends  ../layout/header
+
 block headContent
    link(rel='stylesheet', href='/stylesheets/iServer/new_interface.css')
    script(src="/javascript/iServer/interface_list.js")
@@ -22,5 +23,14 @@ block bodyContent
                tr
                   td #{item.interface_name}
                   td #{item.interface_desc}
-                  td sadfasd
+                  td
+                     div.panel-group#accordion
+                        div.panel.panel-info
+                           div.panel-heading
+                              h4.panel-title
+                                 a(data-toggle="collapse" data-parent="#accordion" href="#collapseThree")
+                                    | 点击我进行展开，再次点击我进行折叠。
+                        div#collapseThree.panel-collapse.collapse
+                           div.panel-body
+                              |Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
                   td #{item.interface_desc}

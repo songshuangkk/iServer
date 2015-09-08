@@ -21,16 +21,15 @@ block bodyContent
             tbody
             - each item in list
                tr
-                  td #{item.interface_name}
-                  td #{item.interface_desc}
                   td
-                     div.panel-group#accordion
-                        div.panel.panel-info
-                           div.panel-heading
-                              h4.panel-title
-                                 a(data-toggle="collapse" data-parent="#accordion" href="#collapseThree")
-                                    | 点击我进行展开，再次点击我进行折叠。
-                        div#collapseThree.panel-collapse.collapse
-                           div.panel-body
-                              |Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                  td #{item.interface_desc}
+                     | #{item.interface_name}
+                  td
+                     | #{item.return_type}
+                  td
+                     | #{item.interface_param}
+                  td
+                     | #{item.interface_desc}
+                  td
+                     a.editInterface
+                        | 修改编辑接口
+                     a.removeInterface

@@ -22,7 +22,7 @@ router.get('/iServer/interface_list', iserver.interface_list);
 
 router.post('/iServer/save_new_interface', iserver.save_new_interface);
 
-router.post('/iServer/update_interface', iserver.update_interface);
+router.get('/iServer/update_interface', iserver.update_interface);
 
 router.get('/iServer/find_interface', iserver.find_interface);
 

@@ -25,8 +25,7 @@ exports.save_new_interface = function (req, res, next) {
 
 
 exports.update_interface = function (req, res, next) {
-    var data = req.body;
-
+    var data = req.query;
     interface_service.update_interface(data);
 };
 

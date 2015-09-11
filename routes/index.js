@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-var iserver = require('../biz/iServer/iServer')
+var iserver = require('../biz/iServer/iServer');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', function (req, res, next) {
+  res.render('iServer/iServer');
 });
 
 router.get('/iServer', function (req, res, next) {

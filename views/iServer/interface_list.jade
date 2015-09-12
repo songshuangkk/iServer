@@ -5,9 +5,11 @@ extends  ../layout/header
 block headContent
    link(rel='stylesheet', href='/stylesheets/iServer/new_interface.css')
    script(src="/javascript/iServer/interface_list.js")
-   include edit_interface
 block bodyContent
    div(style='width:80%; margin-left:13%')
+
+      include edit_interface
+
       div.interface_data
          table.table.table-condensed
             - var list = docs;
@@ -39,9 +41,10 @@ block bodyContent
                   td
                      + check_null(item.interface_desc)
                   td
-                     a.editInterface(data-toggle="modal" data-target="#form-content")
+                     a.editInterface.btn(data-toggle="modal" data-controls-modal='#editModal')
                         | 修改编辑接口
-                     a.removeInterface
+                     a.removeInterface.btn
+                        | 删除
 
 
    //判断是否为空方法

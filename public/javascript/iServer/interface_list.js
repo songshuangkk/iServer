@@ -24,6 +24,7 @@ $(document).ready(function (){
      * 修改编辑接口
      */
     function editInterfaceEvent() {
+        $('#editModal').modal();
         return;
         var tr = $(this).closest('tr');
         var tdList = tr.children();

@@ -24,11 +24,7 @@ $(document).ready(function (){
      * 修改编辑接口
      */
     function editInterfaceEvent() {
-
-
-        // 显示编辑页面浮层
-        $('#form-conent').modal();
-
+        return;
         var tr = $(this).closest('tr');
         var tdList = tr.children();
         var interface_name = tdList[0].innerHTML;

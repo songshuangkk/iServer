@@ -7,11 +7,10 @@ block headContent
    script(src="/javascript/iServer/interface_list.js")
    include edit_interface
 block bodyContent
-   div
+   div(style='width:80%; margin-left:13%')
       div.interface_data
          table.table.table-condensed
             - var list = docs;
-            - console.log(list[0].interface_desc);
             caption #{list.interface_name}
             thead
                tr
@@ -20,17 +19,23 @@ block bodyContent
                   th 接口参数类型
                   th 接口描述
             tbody
-            - each item in list
+            each item in list
                tr
                   td
                      | #{item.interface_name}
                   td
                      | #{item.return_type}
                   td
-                     | #{item.interface_param}
+                     - var param_list = JSON.parse(item.interface_param);
+                     - var length     = param_list.length;
+                     each param, key in param_list
+                        if (key == length-1)
+                           | #{param.param_type}
+                        else
+                           |  #{param.param_type + ', '}
                   td
                      | #{item.interface_desc}
                   td
-                     a.editInterface
+                     a.editInterface(data-toggle="modal" data-target="#form-content")
                         | 修改编辑接口
                      a.removeInterface

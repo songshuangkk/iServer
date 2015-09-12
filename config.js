@@ -5,10 +5,8 @@
 
 var config = {
 
-    MongoHost: 'mongodb://localhost/iServer',
+    MongoHost: 'mongodb://localhost/iServer',      //连接阿里云上面的地址:120.26.42.12:28018
     MongoPort: '',
-
-
 
     PORT: 3000
 };

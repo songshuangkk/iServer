@@ -22,20 +22,31 @@ block bodyContent
             each item in list
                tr
                   td
-                     | #{item.interface_name}
+                     + check_null(item.interface_name)
                   td
-                     | #{item.return_type}
+                     + check_null(item.return_type)
                   td
                      - var param_list = JSON.parse(item.interface_param);
                      - var length     = param_list.length;
                      each param, key in param_list
                         if (key == length-1)
-                           | #{param.param_type}
+                           + check_null(param.param_type)
                         else
-                           |  #{param.param_type + ', '}
+                           if param.param_type == ''
+                              | '无'
+                           else
+                              |  #{param.param_type + ', '}
                   td
-                     | #{item.interface_desc}
+                     + check_null(item.interface_desc)
                   td
                      a.editInterface(data-toggle="modal" data-target="#form-content")
                         | 修改编辑接口
                      a.removeInterface
+
+
+   //判断是否为空方法
+   mixin check_null (param)
+      if param == ''
+         | '空'
+      else
+         | #{param}

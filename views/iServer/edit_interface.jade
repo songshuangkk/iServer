@@ -2,23 +2,44 @@
    Created by songshuang on 15/9/11.
 
 //
-//div.modal.hide.fade.in#editModal(style='display:none')
-//   div.modal-header
-//      a.close(data-dismiss='modal')
-//      | x
-//      h3
-//      | 编辑
-//   div.modal-body
-//      h1
-//      | test
-//   div.modal-footer
-//      a.btn.btn-success(href='#')
-//      | 保存
-//      a.btn(href='$#')
-//      | 关闭
-
-div.modal.hide.fade#editModal
-   div.modal-header
-      a.close(title='关闭') x
-   div.modal-body
-      a.btn.primary 保存
+div.modal.in#editModal(role='dialog')
+   div.modal-dialog
+      div.modal-content
+         div.modal-header
+            a.close(data-dismiss='modal') x
+            h4.modal-title
+            | 编辑
+         div.modal-body
+            form(role='form')
+               div.form-group
+                  label
+                  |接口名
+                  div
+                     input.form-control(type='text' placeholder='请输入新接口名')
+               div.form-group
+                  label.new_interface_param
+                  | 返回值类型
+                  div
+                     input.form-control(type='text' placeholder='请输入返回值类型')
+                  label.new_interface_param
+                  | 返回值
+                  div
+                     input.form-control(type='text' placeholder='请输入返回值')
+               div.form-group
+                  div.param_div
+                     label.new_interface_param
+                     | 参数类型
+                     input.form-control(type='text' placeholder='请输入参数类型')
+                     label.new_interface_param
+                     | 参数名
+                     input.form-control(type='text' placeholder='请输入参数名')
+                  div.add_param
+                     a(href='#' ) 添加参数
+               div.form-group
+                  label.new_interface_param
+                  | 接口描述
+                  div
+                     textarea(class='form-control' placeholder='接口描述')
+         div.modal-footer
+            a.btn.btn-success.save_edit(href='#') 保存
+            a.btn(data-dismiss='modal' href='#') 关闭

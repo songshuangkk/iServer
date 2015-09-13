@@ -10,7 +10,8 @@ $(document).ready(function (){
          * 初始化事件
          */
         function init_event() {
-            $('.editInterface').on('click', editInterfaceEvent);
+            /*修改接口事件*/
+            $('.save_edit').on('click', editInterfaceEvent);
             $('.removeInterface').on('click', removeInterfaceEvent);
         }
 
@@ -24,7 +25,7 @@ $(document).ready(function (){
      * 修改编辑接口
      */
     function editInterfaceEvent() {
-        $('#editModal').modal();
+        alert('save_edit');
         return;
         var tr = $(this).closest('tr');
         var tdList = tr.children();

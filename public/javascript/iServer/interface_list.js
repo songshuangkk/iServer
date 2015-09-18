@@ -27,11 +27,24 @@ $(document).ready(function (){
 
     /**
      *
-     * 修改编辑接口
+     * 修改编辑接口(进行渲染数据)
      */
     function editInterfaceEvent() {
         var item = ($(this).data()['info']);
-        console.log(item);
+
+        var id   = item._id,
+            interface_desc = item.interface_desc,
+            interface_name = item.interface_name,
+            return_name    = item.return_name,
+            return_type    = item.return_type,
+            interface_param= JSON.parse(item.interface_param);
+
+        $('#editInterfaceName').val(interface_name);
+        $('#editReturnType').val(return_type);
+        $('#editReturnVal').val(return_name);
+        $('#editInterfaceDesc').val(interface_desc);
+
+        //动态的添加渲染接口参数
     }
 
 

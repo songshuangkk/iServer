@@ -14,7 +14,7 @@ exports.interface_list = function (req, res) {
             throw err;
         }
         res.render('iServer/interface_list', {
-            docs: docs
+            docs: JSON.stringify(docs)
         });
     });
 

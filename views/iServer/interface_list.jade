@@ -12,7 +12,7 @@ block bodyContent
 
       div.interface_data
          table.table.table-condensed
-            - var list = docs;
+            - var list = JSON.parse(docs);
             caption #{list.interface_name}
             thead
                tr
@@ -41,6 +41,7 @@ block bodyContent
                   td
                      + check_null(item.interface_desc)
                   td
+                     - item = JSON.stringify(item);
                      a.editInterface.btn(data-toggle="modal" data-target='#editModal', data-info='#{item}')
                         | 修改编辑接口
                      a.removeInterface.btn

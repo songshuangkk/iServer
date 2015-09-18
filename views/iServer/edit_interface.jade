@@ -15,16 +15,16 @@ div.modal.in#editModal(role='dialog')
                   label
                   |接口名
                   div
-                     input.form-control(type='text' placeholder='请输入新接口名')
+                     input#editInterfaceName.form-control(type='text' placeholder='请输入新接口名')
                div.form-group
                   label.new_interface_param
                   | 返回值类型
                   div
-                     input.form-control(type='text' placeholder='请输入返回值类型')
+                     input#editReturnType.form-control(type='text' placeholder='请输入返回值类型')
                   label.new_interface_param
                   | 返回值
                   div
-                     input.form-control(type='text' placeholder='请输入返回值')
+                     input#editReturnVal.form-control(type='text' placeholder='请输入返回值')
                div.form-group
                   div.param_div
                      label.new_interface_param
@@ -39,7 +39,7 @@ div.modal.in#editModal(role='dialog')
                   label.new_interface_param
                   | 接口描述
                   div
-                     textarea(class='form-control' placeholder='接口描述')
+                     textarea#editInterfaceDesc.form-control(placeholder='接口描述')
          div.modal-footer
             a.btn.btn-success.save_edit(href='#') 保存
             a.btn(data-dismiss='modal' href='#') 关闭

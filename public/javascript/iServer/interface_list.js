@@ -15,7 +15,9 @@ $(document).ready(function (){
             /*点击修改按钮的时候，将数据渲染到编辑页面*/
             $('.editInterface').on('click', editInterfaceEvent);
             /*修改页面的保存按钮*/
-            $(document).on('save_edit', 'click', save_editEvent);
+            $(document).on('add_param', 'save_edit', save_editEvent);
+            //添加参数按钮
+            $(document).on('click', '#add_param', click_add_param);
 
             $('.removeInterface').on('click', removeInterfaceEvent);
         }
@@ -39,12 +41,57 @@ $(document).ready(function (){
             return_type    = item.return_type,
             interface_param= JSON.parse(item.interface_param);
 
-        $('#editInterfaceName').val(interface_name);
-        $('#editReturnType').val(return_type);
-        $('#editReturnVal').val(return_name);
-        $('#editInterfaceDesc').val(interface_desc);
+        $('#interface_name').val(interface_name);
+        $('#return_value_type').val(return_type);
+        $('#return_value').val(return_name);
+        $('#des_interface').val(interface_desc);
 
         //动态的添加渲染接口参数
+        var length = interface_param.length;
+
+        _.each(interface_param, render_param);
+
+        function render_param(item, index) {
+            // 第一个参数的类型不用渲染添加
+            if (index == 0) {
+                $("input[name='param_value_type']").val(item.param_type);
+                $("input[name='param_value_name']").val(item.param_name);
+            } else {
+                $('#add_param').toggle('click', function() {
+                    var that = $(this);
+                    click_add_param(item, that);
+                });
+            }
+        }
+    }
+
+    /**
+     *
+     * 动态添加参数的功能
+     *
+     */
+    function click_add_param(data, that) {
+        var add_button = $(this);
+        var add_param_div = '';
+        if (data !== void 0) {
+            add_button = that;
+            add_param_div = '' +
+                '<div class="param_div">' +
+                '   <label class="new_interface_param">参数类型</label>' +
+                '   <input type="text" name="param_value_type" class="form-control" value='+data.param_type+' placeholder="请输入参数类型"/>' +
+                '   <label class="new_interface_param">参数名</label>' +
+                '   <input type="text" name="param_value_name" class="form-control" value='+data.param_name+' placeholder="请输入参数名"/>' +
+                '</div>';
+        } else {
+            add_param_div = '' +
+                '<div class="param_div">' +
+                '   <label class="new_interface_param">参数类型</label>' +
+                '   <input type="text" name="param_value_type" class="form-control" placeholder="请输入参数类型" />' +
+                '   <label class="new_interface_param">参数名</label>' +
+                '   <input type="text" name="param_value_name" class="form-control" placeholder="请输入参数名"/>' +
+                '</div>';
+        }
+        add_button.parent('.add_param').before(add_param_div);
     }
 
 

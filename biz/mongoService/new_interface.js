@@ -80,9 +80,7 @@ exports.remove_interface = function(data){
  */
 exports.update_interface = function(data){
 
-    var param = data.param;
-
-    var data = data.data;
+    var param = {"_id": '"'+data.id+'"'};
 
     Interface_service.update_interface(param, data,function(err){
         if (err) {

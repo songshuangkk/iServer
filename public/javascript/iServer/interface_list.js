@@ -5,66 +5,6 @@ $(document).ready(function (){
 
     "use strict";
 
-    function interface_list() {
-
-        /**
-         *
-         * 初始化事件
-         */
-        function init_event() {
-            /*点击修改按钮的时候，将数据渲染到编辑页面*/
-            $('.editInterface').on('click', editInterfaceEvent);
-            /*修改页面的保存按钮*/
-            $(document).on('add_param', 'save_edit', save_editEvent);
-            //添加参数按钮
-            $(document).on('click', '#add_param', click_add_param);
-
-            $('.removeInterface').on('click', removeInterfaceEvent);
-        }
-
-        return {
-            init_event: init_event
-        }
-    }
-
-    /**
-     *
-     * 修改编辑接口(进行渲染数据)
-     */
-    function editInterfaceEvent() {
-        var item = ($(this).data()['info']);
-
-        var id   = item._id,
-            interface_desc = item.interface_desc,
-            interface_name = item.interface_name,
-            return_name    = item.return_name,
-            return_type    = item.return_type,
-            interface_param= JSON.parse(item.interface_param);
-
-        $('#interface_name').val(interface_name);
-        $('#return_value_type').val(return_type);
-        $('#return_value').val(return_name);
-        $('#des_interface').val(interface_desc);
-
-        //动态的添加渲染接口参数
-        var length = interface_param.length;
-
-        _.each(interface_param, render_param);
-
-        function render_param(item, index) {
-            // 第一个参数的类型不用渲染添加
-            if (index == 0) {
-                $("input[name='param_value_type']").val(item.param_type);
-                $("input[name='param_value_name']").val(item.param_name);
-            } else {
-                $('#add_param').toggle('click', function() {
-                    var that = $(this);
-                    click_add_param(item, that);
-                });
-            }
-        }
-    }
-
     /**
      *
      * 动态添加参数的功能
@@ -94,6 +34,64 @@ $(document).ready(function (){
         add_button.parent('.add_param').before(add_param_div);
     }
 
+    /**
+     * 获得输入的参数
+     * @param that
+     */
+    function getParamData(that) {
+        var param_list = [],
+            divParams = that.parent('div.modal-footer').prev().find('div.param_div');
+
+        _.each(divParams, setData);
+
+        function setData(item) {
+            param_list.push({
+                param_type: $(item).find("input[name='param_value_type']").val(),
+                param_name: $(item).find("input[name='param_value_name']").val()
+            })
+        }
+
+        return param_list;
+    }
+
+    /**
+     *
+     * 修改编辑接口(进行渲染数据)
+     */
+    function editInterfaceEvent() {
+        var item = ($(this).data()['info']);
+
+        var id   = item._id,
+            interface_desc = item.interface_desc,
+            interface_name = item.interface_name,
+            return_name    = item.return_name,
+            return_type    = item.return_type,
+            interface_param= JSON.parse(item.interface_param);
+
+        $('#interface_id').val(id);
+        $('#interface_name').val(interface_name);
+        $('#return_value_type').val(return_type);
+        $('#return_value').val(return_name);
+        $('#des_interface').val(interface_desc);
+
+        //动态的添加渲染接口参数
+        var length = interface_param.length;
+
+        _.each(interface_param, render_param);
+
+        function render_param(item, index) {
+            // 第一个参数的类型不用渲染添加
+            if (index == 0) {
+                $("input[name='param_value_type']").val(item.param_type);
+                $("input[name='param_value_name']").val(item.param_name);
+            } else {
+                $('#add_param').toggle('click', function() {
+                    var that = $(this);
+                    click_add_param(item, that);
+                });
+            }
+        }
+    }
 
     /**
      *
@@ -128,13 +126,14 @@ $(document).ready(function (){
      *
      */
     function save_editEvent(){
-        var tr = $(this).closest('tr');
-        var tdList = tr.children();
-        var interface_name = tdList[0].innerHTML;
-        var return_type = tdList[1].innerHTML;
-        var interface_param = tdList[2].innerHTML;
+        var that = $(this),
+            id = $('#interface_id').val(),
+            interface_name = $('#interface_name').val(),
+            return_type = $('#return_value_type').val(),
+            interface_param = getParamData(that);
 
         var data = {
+            id: id,
             interface_name:  interface_name,
             return_type:     return_type,
             interface_param: interface_param
@@ -143,7 +142,7 @@ $(document).ready(function (){
         var ret = $.ajax({
             url: '/iServer/update_interface',
             type: 'GET',
-            data: data
+            data: JSON.stringify(data)
         });
 
         ret.done(function(data){
@@ -155,6 +154,29 @@ $(document).ready(function (){
         ret.error(function(data){
             alert('修改编辑失败');
         })
+    }
+
+
+    function interface_list() {
+
+        /**
+         *
+         * 初始化事件
+         */
+        function init_event() {
+            /*点击修改按钮的时候，将数据渲染到编辑页面*/
+            $('.editInterface').on('click', editInterfaceEvent);
+            /*修改页面的保存按钮*/
+            $(document).on('click', '.save_edit', save_editEvent);
+            //添加参数按钮
+            $(document).on('click', '#add_param', click_add_param);
+
+            $('.removeInterface').on('click', removeInterfaceEvent);
+        }
+
+        return {
+            init_event: init_event
+        }
     }
 
 

@@ -6,6 +6,8 @@ var config   = require('../config');
 
 mongoose.connect(config.MongoHost);
 
+mongoose.set('debug', config.MongodbDebug);
+
 var db = mongoose.createConnection();
 
 db.on('error', function(err) {

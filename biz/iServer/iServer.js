@@ -26,7 +26,7 @@ exports.save_new_interface = function (req, res, next) {
 
 exports.update_interface = function (req, res, next) {
     var data = req.query;
-    interface_service.update_interface(data);
+    interface_service.update_interface(data, req, res);
 };
 
 exports.find_interface = function (req, res, next) {
@@ -36,7 +36,7 @@ exports.find_interface = function (req, res, next) {
 };
 
 exports.remove_interface = function (req, res, next) {
-    var data = req.body;
+    var data = req.query;
 
-    interface_service.remove_interface(data);
+    interface_service.remove_interface(data, req, res);
 };

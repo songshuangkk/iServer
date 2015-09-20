@@ -57,7 +57,7 @@ exports.insert_interface = function(data) {
  *
  * @param data
  */
-exports.remove_interface = function(data){
+exports.remove_interface = function(data, req, res){
 
     var param = {
       interface_name: data.interface_name
@@ -69,6 +69,9 @@ exports.remove_interface = function(data){
             throw err;
         }
         console.log('remove interface success!');
+        res.send({
+            success: true
+        });
     });
 };
 
@@ -78,16 +81,22 @@ exports.remove_interface = function(data){
  *
  * @param data
  */
-exports.update_interface = function(data){
+exports.update_interface = function(data, req, res){
 
-    var param = {"_id": '"'+data.id+'"'};
-
+    var param = {
+        interface_name: data.interface_name
+    };
+    data.interface_param = JSON.stringify(data.interface_param);
     Interface_service.update_interface(param, data,function(err){
         if (err) {
             console.error('update interface failed!');
+            console.log(new Error(err));
             throw err;
         }
-        console.log('update interface success');
+        console.log('update success');
+        res.send({
+            success: true
+        });
     });
 };
 

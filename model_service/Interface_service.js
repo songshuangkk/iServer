@@ -11,7 +11,7 @@ var Schema = require('../model/interface_model').Interface;
 
 
 exports.interface_list = function (callback) {
-  Schema.find(callback);
+  Schema.find({}, {},callback);
 };
 
 /**

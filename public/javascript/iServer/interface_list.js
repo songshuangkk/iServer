@@ -99,8 +99,10 @@ $(document).ready(function (){
      */
     function removeInterfaceEvent() {
 
-        var data = {
+        var interface_name = $(this).closest('tr').find('td').first().text();
 
+        var data = {
+            interface_name: interface_name
         };
 
         var ret = $.ajax({
@@ -111,7 +113,8 @@ $(document).ready(function (){
 
         ret.done(function(data){
             if (data.success) {
-
+                alert('删除成功');
+                location.reload();
             }
         });
 
@@ -130,29 +133,33 @@ $(document).ready(function (){
             id = $('#interface_id').val(),
             interface_name = $('#interface_name').val(),
             return_type = $('#return_value_type').val(),
+            interface_desc = $('#des_interface').val(),
             interface_param = getParamData(that);
 
         var data = {
             id: id,
             interface_name:  interface_name,
             return_type:     return_type,
-            interface_param: interface_param
+            interface_param: interface_param,
+            interface_desc:  interface_desc
         };
 
         var ret = $.ajax({
             url: '/iServer/update_interface',
             type: 'GET',
-            data: JSON.stringify(data)
+            data: data
         });
 
         ret.done(function(data){
             if (data.success){
-
+                alert("修改编辑成功");
+                $('#editModal').modal('hide');
             }
         });
 
         ret.error(function(data){
             alert('修改编辑失败');
+            $('#editModal').modal('hide');
         })
     }
 

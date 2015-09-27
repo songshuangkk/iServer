@@ -163,6 +163,10 @@ $(document).ready(function (){
         })
     }
 
+    function delete_param () {
+        $(this).closest('div.add_param').prev().remove();
+    }
+
 
     function interface_list() {
 
@@ -177,6 +181,8 @@ $(document).ready(function (){
             $(document).on('click', '.save_edit', save_editEvent);
             //添加参数按钮
             $(document).on('click', '#add_param', click_add_param);
+            // 删除参数
+            $(document).on('click', '#deleteParam', delete_param);
 
             $('.removeInterface').on('click', removeInterfaceEvent);
         }

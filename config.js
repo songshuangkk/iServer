@@ -12,7 +12,10 @@ var config = {
     PORT: 3000,
 
     Elasticsearch: '', // 搜索引擎服务器地址
-    ElasticsearchPort: '' // 搜索引擎服务器端口
+    ElasticsearchPort: '', // 搜索引擎服务器端口
+
+    RedisHost: 'localhost',
+    RedisPort: '6379'
 };
 
 module.exports = exports = config;

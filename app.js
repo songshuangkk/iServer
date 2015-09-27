@@ -6,6 +6,7 @@ var cookieParser  = require('cookie-parser');
 var bodyParser    = require('body-parser');
 
 require('./config/model_config');
+require('./config/redis_config');
 
 var Config        = require('./config');
 

@@ -3,6 +3,7 @@
  */
 
 var _                   = require('underscore');
+var redisClient         = require('../../config/redis_config');
 
 var Interface_service   = require('../../model_service/Interface_service');
 var Interface_Schema    = require('../../model/interface_model').Interface;
@@ -41,6 +42,8 @@ exports.insert_interface = function(data) {
             if (err) {
                 console.log('insert failed');
             } else {
+                // 添加到redis中，用于搜索的时候直接查询结果
+                redisClient.set(insert_data.interface_name, insert_data);
                 console.log('insert success');
             }
         });

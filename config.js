@@ -15,7 +15,9 @@ var config = {
     ElasticsearchPort: '', // 搜索引擎服务器端口
 
     RedisHost: 'localhost',
-    RedisPort: '6379'
+    RedisPort: '6379',
+    RedisUserName: '',
+    RedisPssword: ''
 };
 
 module.exports = exports = config;

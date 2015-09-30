@@ -7,6 +7,8 @@ var Config = require('../config');
 var redis = require('redis'),
     redisClient = redis.createClient(Config.RedisPort, Config.RedisHost);
 
+redisClient.AUTH(Config.RedisPssword, Config.RedisUserName);
+
 redisClient.on('error', function(error) {
    console.error('Redis error!', error);
    redisClient.quit();

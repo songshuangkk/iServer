@@ -5,7 +5,7 @@
 
 var config = {
 
-    MongoHost: 'mongodb://localhost/iServer',      //连接阿里云上面的地址:120.26.42.12:28018
+    MongoHost: 'mongodb://120.26.42.12:27017/iServer',      //连接阿里云上面的地址:120.26.42.12:28018
     MongoPort: '',
     MongodbDebug: true,
     MongodbUserName: '',
@@ -16,10 +16,10 @@ var config = {
     Elasticsearch: '', // 搜索引擎服务器地址
     ElasticsearchPort: '', // 搜索引擎服务器端口
 
-    RedisHost: 'localhost',
+    RedisHost: '120.26.42.12',
     RedisPort: '6379',
     RedisUserName: '',
-    RedisPssword: ''
+    RedisPssword: 'Ss64746269'
 };
 
 module.exports = exports = config;

@@ -1,9 +1,11 @@
 /**
  * Created by songshuang on 15/9/1.
  */
-$(document).ready(function (){
+$(document).ready(function (require){
 
     "use strict";
+
+    var page = require();
 
     /**
      *

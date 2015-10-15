@@ -2,8 +2,19 @@ var express = require('express');
 var router = express.Router();
 
 var iserver = require('../biz/iServer/iServer');
+var passport = require('../config/passport_config');
 
-router.get('/', function (req, res, next) {
+router.get('/auth/github',
+    passport.authenticate('github')
+);
+
+router.get('/auth/github/callback',
+    passport.authenticate('github', {failureRedirect: '/home'}),
+    function(req, res){
+      res.redirect("/home");
+    });
+
+router.get('/home', function (req, res, next) {
   res.render('iServer/iServer');
 });
 

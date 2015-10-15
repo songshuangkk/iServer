@@ -7,6 +7,7 @@ var bodyParser    = require('body-parser');
 
 require('./config/model_config');
 require('./config/redis_config');
+require('./config/passport_config');
 
 var Config        = require('./config');
 

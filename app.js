@@ -7,7 +7,7 @@ var bodyParser    = require('body-parser');
 
 require('./config/model_config');
 require('./config/redis_config');
-require('./config/passport_config');
+var passport = require('./config/passport_config');
 
 var Config        = require('./config');
 
@@ -27,6 +27,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// passport 的初始化
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', routes);
 app.use('/users', users);

@@ -5,13 +5,13 @@ var iserver = require('../biz/iServer/iServer');
 var passport = require('../config/passport_config');
 
 router.get('/auth/github',
-    passport.authenticate('github')
-);
+    passport.authenticate('github', { scope: [ 'user:email' ] }));
 
 router.get('/auth/github/callback',
-    passport.authenticate('github', {failureRedirect: '/home'}),
-    function(req, res){
-      res.redirect("/home");
+    passport.authenticate('github', { failureRedirect: '/login' }),
+    function(req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/');
     });
 
 router.get('/home', function (req, res, next) {

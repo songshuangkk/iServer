@@ -1,0 +1,52 @@
+//
+   Created by songshuang on 15/10/19.
+doctype html
+link(rel='stylesheet', href='/stylesheets/login.css')
+link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+head
+   title iServer Login
+
+   body
+      div.loginForm.front-container
+         div.loginInputContainer
+            div#user
+               img#userImg(src="images/user.png")
+            div#formContainer
+               form(role='form')
+                  div.form-group#userContainer
+                     label
+                     |用户名&nbsp&nbsp
+                     input(type="text" placeholder="请输入用户名")
+                  div.form-group#passwordContainer
+                     label
+                     |密&nbsp&nbsp&nbsp&nbsp码&nbsp&nbsp
+                     input(type="password" placeholder="请输入密码")
+                  div#nextDiv
+                     input(type="button" value="下一步" onclick='renderPassword()').btn#submitLogin
+                  div#submitDiv
+                     input(type="submit" value="登入").btn#submitLogin
+            div#GitHubContainer
+               a(href="/auth/github")
+                  img#loginGithub(src="images/github.png")
+
+script.
+   var userName = document.getElementById("userContainer"),
+           password = document.getElementById("passwordContainer"),
+           next = document.getElementById("nextDiv"),
+           submit = document.getElementById("submitDiv"),
+           CONFIG = {
+              userNameClass: userName.className,
+              passwordClass: password.className,
+              nextClass: next.className,
+              submitClass: submit.className
+           },
+           userNameClass = userName.className;
+
+   userName.className += userName.className + ', showContainer';
+
+   function renderPassword() {
+
+      password.className += password.className + ', showContainer';
+      userName.className = CONFIG.userNameClass;
+   }
+

@@ -11,8 +11,12 @@ router.get('/auth/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
         // Successful authentication, redirect home.
-        res.redirect('/');
+        res.redirect('/home');
     });
+
+router.get('/', function(req, res, next){
+    res.render('iServer/login');
+});
 
 router.get('/home', function (req, res, next) {
   res.render('iServer/iServer');

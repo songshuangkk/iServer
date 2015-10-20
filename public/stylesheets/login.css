@@ -1,0 +1,65 @@
+body {
+    background-image: url("../images/background.jpg");
+}
+
+.loginForm {
+    border: 1px solid #e1e8ed;
+    width: 350px;
+    height: 300px;
+    text-align: center;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    background: #fff;
+    filter:alpha(opacity=50) !important;
+}
+
+.loginInputContainer {
+    margin-top: 5px;
+}
+
+.form-group {
+    margin-right: 0px;
+}
+
+.showContainer {
+    display: inline !important;
+}
+
+#userContainer, #passwordContainer {
+    display: none;
+}
+
+#formContainer{
+    padding-top: 50px;
+}
+
+#userImg {
+    width: 60px;
+    height: 60px;
+    margin-left: 15px;
+    margin-top: 25px;
+}
+
+#nextDiv,#submitDiv {
+    display: none;
+    padding-top: 40px;
+    padding-left: 25px;
+}
+
+#submitLogin {
+    width: 100px;
+    height: 30px;
+    background-color: #55ACFA;
+}
+
+#GitHubContainer {
+    padding-top: 10px;
+    padding-left: 260px;
+}
+
+#loginGithub {
+    width: 30px;
+    height: 30px;
+}

@@ -28,6 +28,7 @@ body {
 }
 
 #userContainer, #passwordContainer {
+    transition: 1s;
     display: none;
 }
 
@@ -43,7 +44,6 @@ body {
 }
 
 #nextDiv,#submitDiv {
-    display: none;
     padding-top: 40px;
     padding-left: 25px;
 }
@@ -55,11 +55,23 @@ body {
 }
 
 #GitHubContainer {
-    padding-top: 10px;
-    padding-left: 260px;
+    padding-top: 20px;
 }
 
-#loginGithub {
+#signUp {
+    float: left;
+    list-style:none;
+    cursor:pointer
+}
+
+#GitHubLogin {
+    float: left;
+    list-style:none;
+    padding-left: 180px;
+}
+
+#loginGithubImg {
     width: 30px;
     height: 30px;
 }
+

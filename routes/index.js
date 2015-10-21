@@ -18,6 +18,10 @@ router.get('/', function(req, res, next){
     res.render('iServer/login');
 });
 
+router.get('/signUp', function(req, res){
+    res.render('iServer/signUp');
+});
+
 router.get('/home', function (req, res, next) {
   res.render('iServer/iServer');
 });

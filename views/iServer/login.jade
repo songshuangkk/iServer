@@ -16,18 +16,24 @@ head
                   div.form-group#userContainer
                      label
                      |用户名&nbsp&nbsp
-                     input(type="text" placeholder="请输入用户名")
+                     input(type="text" placeholder="请输入用户名")#userName
                   div.form-group#passwordContainer
                      label
                      |密&nbsp&nbsp&nbsp&nbsp码&nbsp&nbsp
-                     input(type="password" placeholder="请输入密码")
+                     input(type="password" placeholder="请输入密码")#passWord
                   div#nextDiv
                      input(type="button" value="下一步" onclick='renderPassword()').btn#submitLogin
-                  div#submitDiv
+                  div#submitDiv(style="display: none;")
                      input(type="submit" value="登入").btn#submitLogin
             div#GitHubContainer
-               a(href="/auth/github")
-                  img#loginGithub(src="images/github.png")
+               ul
+                  li#signUp
+                     a(href='/signUp') 注册新用户
+                  li#GitHubLogin
+                     a(href="/auth/github")
+                        img#loginGithubImg(src="images/github.png")
+
+
 
 script.
    var userName = document.getElementById("userContainer"),
@@ -44,8 +50,24 @@ script.
 
    userName.className += userName.className + ', showContainer';
 
-   function renderPassword() {
+   function checkValue() {
 
+      // 校验密码是否输入
+      if (userName.className.indexOf('showContainer')) {
+
+         if (document.getElementById("userName").value == "") {
+            alert("请输入用户名");
+            return false;
+         }
+      } else {
+
+      }
+   }
+
+   function renderPassword() {
+      if (!checkValue()) {
+         return;
+      }
       password.className += password.className + ', showContainer';
       userName.className = CONFIG.userNameClass;
    }

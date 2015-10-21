@@ -1,0 +1,20 @@
+body {
+
+}
+
+.container {
+    border-bottom: 0px;
+    position: fixed;
+    top: 0;
+    right: 0px;
+    left: 0px;
+    z-index: 1000;
+}
+
+.global-nav {
+    background: transparent;
+}
+
+#signUpContainer {
+    text-align: center;
+}

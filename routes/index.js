@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 var iserver = require('../biz/iServer/iServer');
+var account = require('../biz/iServer/account');
+
 var passport = require('../config/passport_config');
 
 router.get('/auth/github',
@@ -21,6 +23,8 @@ router.get('/', function(req, res, next){
 router.get('/signUp', function(req, res){
     res.render('iServer/signUp');
 });
+
+router.post('/account/create', account.create);
 
 router.get('/home', function (req, res, next) {
   res.render('iServer/iServer');

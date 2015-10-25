@@ -1,0 +1,50 @@
+//
+   Created by songshuang on 15/10/21.
+
+doctype html
+link(rel='stylesheet', href='/stylesheets/signUp.css')
+head
+   title 注册用户
+
+body
+   div
+      div.container
+         div.global-nav
+      div#signUpContainer
+         div#inputContainerDiv
+            div#inputContainer
+               div#inputForm
+                  div
+                     h1 现在就加入iServer
+
+                  div
+                     div
+                        form(action="/account/create" method="POST")
+                           div#inputDetailContainer
+                              div
+                                 if data != void 0 && data.userName != ''
+                                    input(placeholder="全名" name="userName" value="#{data.userName}")#inputDetailClass
+                                 else
+                                    input(placeholder="全名" name="userName")#inputDetailClass
+
+                           div#inputDetailContainer
+                              div
+                                 if data != void 0 && data.userEmail != ''
+                                    input(placeholder="手机或邮件" name="userEmail" value="#{data.userEmail}")#inputDetailClass
+                                 else
+                                    input(placeholder="手机或邮件" name="userEmail")#inputDetailClass
+
+                           div#inputDetailContainer
+                              div
+                                 if data != void 0 && data.passowrd != ''
+                                    input(type='password' placeholder="密码" name="password" value="#{data.passowrd}")#inputDetailClass
+                                 else
+                                    input(type='password' placeholder="密码" name="password")#inputDetailClass
+                           div
+                              label
+                              input(type='checkbox' checked='checked')
+                              span
+                              | 同意
+                           div
+                              div#submitBtnDiv
+                              input(type='submit')#submitBtn

@@ -16,6 +16,7 @@
     "mongoose": "4.1.2",
     "redis": "~ 2.0.1",
     "passport": "~0.3.0",
-    "passport-github2": "0.1.9"
+    "passport-github2": "0.1.9",
+    "nodemailer": "~1.8.0"
   }
 }

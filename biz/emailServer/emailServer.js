@@ -2,6 +2,7 @@
  * Created by songshuang on 15/10/25.
  */
 var nodemailer = require('nodemailer');
+var emailConfig = require('../config/email_config').emailConfig;
 
 (function (){
     "use strict";
@@ -10,10 +11,10 @@ var nodemailer = require('nodemailer');
 
     function init () {
         transport = nodemailer.createTransport({
-            server: '',
+            server: emailConfig.host,
             auth: {
-                user: '',
-                pass: ''
+                user: emailConfig.user,
+                pass: emailConfig.pass
             }
         });
     }

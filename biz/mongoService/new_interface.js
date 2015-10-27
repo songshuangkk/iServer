@@ -5,7 +5,7 @@
 var _                   = require('underscore');
 var redisClient         = require('../../config/redis_config');
 
-var Interface_service   = require('../../model_service/Interface_service');
+var Interface_service   = require('.././Interface_service');
 var Interface_Schema    = require('../../model/interface_model').Interface;
 
 exports.interface_list = function (req, res) {

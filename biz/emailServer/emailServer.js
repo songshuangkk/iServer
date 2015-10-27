@@ -2,7 +2,7 @@
  * Created by songshuang on 15/10/25.
  */
 var nodemailer = require('nodemailer');
-var emailConfig = require('../config/email_config').emailConfig;
+var emailConfig = require('../../config/email_config').emailConfig;
 
 (function (){
     "use strict";

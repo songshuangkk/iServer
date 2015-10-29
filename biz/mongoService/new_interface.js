@@ -5,11 +5,11 @@
 var _                   = require('underscore');
 var redisClient         = require('../../config/redis_config');
 
-var Interface_service   = require('.././Interface_service');
+var Interface_operator   = require('../../model_operation/Interface_operation');
 var Interface_Schema    = require('../../model/interface_model').Interface;
 
 exports.interface_list = function (req, res) {
-    Interface_service.interface_list(function (err, docs){
+    Interface_operator.interface_list(function (err, docs){
         if (err) {
             console.error('interface list failed');
             throw err;
@@ -38,7 +38,7 @@ exports.insert_interface = function(data) {
     insert_data.interface_param  = JSON.stringify(data.interface_param);
 
     try{
-        Interface_service.insert_new_interface(insert_data, function(err) {
+        Interface_operator.insert_new_interface(insert_data, function(err) {
             if (err) {
                 console.log('insert failed');
             } else {
@@ -66,7 +66,7 @@ exports.remove_interface = function(data, req, res){
       interface_name: data.interface_name
     };
 
-    Interface_service.remove_interface(param, function(err) {
+    Interface_operator.remove_interface(param, function(err) {
         if (err) {
             console.error('remove interface failed!');
             throw err;
@@ -90,7 +90,7 @@ exports.update_interface = function(data, req, res){
         interface_name: data.interface_name
     };
     data.interface_param = JSON.stringify(data.interface_param);
-    Interface_service.update_interface(param, data,function(err){
+    Interface_operator.update_interface(param, data,function(err){
         if (err) {
             console.error('update interface failed!');
             console.log(new Error(err));
@@ -116,7 +116,7 @@ exports.find_interface = function(data){
       interface_name: data.interface_name
     };
 
-    Interface_service.find_interface(data, function(err, docs){
+    Interface_operator.find_interface(data, function(err, docs){
         if (err){
             console.error('find interface failed');
             throw err;

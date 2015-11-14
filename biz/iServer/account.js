@@ -64,7 +64,12 @@ exports.create = function (req, res) {
         });
     }
 
-    emailServer.sendCheckEmail(userEmail);
-
-    res.render('iServer/signUp');
+    emailServer.sendCheckEmail(userEmail)
+        .then(function (data) {
+            console.log('send email success');
+            res.render('iServer/sendEmailSuccess');
+        }, function (error) {
+            console.log(error);
+            res.render('iServer/signUp');
+        });
 };

@@ -1,44 +1,50 @@
 /**
  * Created by songshuang on 15/10/25.
  */
+"use strict";
+
 var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
 var emailConfig = require('../../config/email_config').emailConfig;
 
-(function (){
-    "use strict";
+var transport;
 
-    var transport;
-
-    function init () {
-        transport = nodemailer.createTransport({
-            server: emailConfig.host,
-            auth: {
-                user: emailConfig.user,
-                pass: emailConfig.pass
-            }
-        });
+var hostOptions = {
+    host: emailConfig.host,
+    auth: {
+        user: emailConfig.user,
+        pass: emailConfig.pass
     }
+};
 
-    var emailServer = function () {
-        init();
+function init() {
+    transport = nodemailer.createTransport(smtpTransport(hostOptions));
+}
+
+var emailServer = function () {
+    init();
+};
+
+emailServer.prototype.sendCheckEmail = function (emailAddress, message) {
+
+    var mailOptions = {
+        from: emailConfig.user, // sender address
+        to: emailAddress, // list of receivers
+        subject: 'Hello ✔', // Subject line
+        text: 'Hello world ✔', // plaintext body
+        html: '<b>Hello world ✔</b>' // html body
     };
-
-    emailServer.prototype.sendCheckEmail = function (emailAddress, message) {
-        transport.send({
-            from: '',
-            to: emailAddress,
-            subject: 'check',
-            text: 'check',
-            html: message
-        }, function(error, info){
+    return new Promise (function (resolve, reject) {
+        transport.sendMail(mailOptions, function (error, info) {
             if (error) {
                 console.log(error);
+                reject(error);
             } else {
                 console.log('Send Message: ' + info.response);
+                resolve(info);
             }
         });
-    };
+    });
+};
 
-    exports = module.exports = new emailServer();
-
-}());
+exports = module.exports = new emailServer();

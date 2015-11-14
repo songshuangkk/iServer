@@ -17,6 +17,7 @@
     "redis": "~ 2.0.1",
     "passport": "~0.3.0",
     "passport-github2": "0.1.9",
-    "nodemailer": "~1.8.0"
+    "nodemailer": "~1.8.0",
+    "nodemailer-smtp-transport": "~1.0.4"
   }
 }

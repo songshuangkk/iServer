@@ -13,7 +13,11 @@ router.get('/auth/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
         // Successful authentication, redirect home.
-        res.redirect('/home');
+        // 获取用户名
+        var userName = req.query.userName;
+        res.redirect('/home', {
+            userName: userName
+        });
     });
 
 router.get('/', function(req, res, next){
@@ -21,7 +25,8 @@ router.get('/', function(req, res, next){
 });
 
 router.get('/signUp', function(req, res){
-    res.render('iServer/signUp');
+    //res.render('iServer/signUp');
+    res.render('iServer/sendEmailSuccess');
 });
 
 router.post('/account/create', account.create);

@@ -15,9 +15,26 @@ head
 body
    nav.navbar.navbar-default
       div.navbar-header
+         a(type='button' href="/home") 首页
+      div.navbar-header
          a(type='button' class='navbar-toogle' data-toggle='collapse' id='new_interface_button') 创建新接口
 
       div.navbar-header
          a.navbar-toogle(type='button' id='interface_list') 所有接口
+
+      if userName === void 0
+         div.navbar-header(style="float: right; display:inline")
+            ol
+               li.welcomeUser
+                  a#userName(onclick="showUserInfo()") 名字
+                  div#userInfo
+                     span asdfasdf
+               li.welcomeUser
+               | 又是你！
+
+         script.
+            function showUserInfo () {
+               document.getElementById("userInfo").style.visibility = "visible"
+            }
    block bodyContent
 

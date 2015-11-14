@@ -67,7 +67,11 @@ exports.create = function (req, res) {
     emailServer.sendCheckEmail(userEmail)
         .then(function (data) {
             console.log('send email success');
-            res.render('iServer/sendEmailSuccess');
+            res.render('iServer/sendEmailSuccess', {
+                data: {
+                    userName: userName
+                }
+            });
         }, function (error) {
             console.log(error);
             res.render('iServer/signUp');

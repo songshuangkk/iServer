@@ -28,3 +28,19 @@ body {
     margin-left: 10px;
     margin-top: 10px;
 }
+
+.welcomeUser {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#userName:hover {
+    color: red;
+    text-decoration: none;
+}
+
+#userInfo {
+    visibility: hidden;
+    position: absolute;
+    margin-top: 20px;
+}

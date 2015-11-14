@@ -1,0 +1,17 @@
+body {
+    margin: auto;
+}
+.registerNav {
+    background-color: #F5F5F5;
+    border-bottom: 1px solid #EEE;
+    height: 35px;
+    margin: auto;
+}
+
+#toIndex {
+    text-decoration: none;
+}
+
+#toIndex:hover {
+    color: red;
+}

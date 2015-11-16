@@ -39,7 +39,7 @@ router.get('/iServer', function (req, res, next) {
   res.render('iServer/iServer');
 });
 
-router.get('/iServer/search', iserver.interface_list);
+router.get('/iServer/search', iserver.find_interface);
 
 router.get('/iServer/new_interface', function (req, res) {
   res.render('iServer/new_interface');

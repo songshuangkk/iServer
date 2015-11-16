@@ -30,9 +30,13 @@ exports.update_interface = function (req, res, next) {
 };
 
 exports.find_interface = function (req, res, next) {
-    var data = req.body;
-
-    interface_service.find_interface(data);
+    var data = req.query.search_text;
+    interface_service.find_interface(data)
+        .then(function (data) {
+            return data;
+        }, function (error) {
+            console.log(error);
+        })
 };
 
 exports.remove_interface = function (req, res, next) {

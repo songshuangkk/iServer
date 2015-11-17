@@ -15,7 +15,8 @@ exports.interface_list = function (req, res) {
             throw err;
         }
         res.render('iServer/interface_list', {
-            docs: JSON.stringify(docs)
+            docs: JSON.stringify(docs),
+            total: 100
         });
     });
 
@@ -65,7 +66,6 @@ exports.remove_interface = function(data, req, res){
     var param = {
       interface_name: data.interface_name
     };
-    console.log(param);
     return new Promise(function (resolve, reject) {
         Interface_operator.remove_interface(param, function(err) {
             if (err) {

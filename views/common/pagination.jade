@@ -4,9 +4,28 @@ link(rel="stylesheet" href='/stylesheets/pagination.css')
 script(src="/javascript/common/pagination.js")
 div.paginationDiv
    div.pagination
+      span
+      | 共条
+      strong #{total}
+      | 记录
+   div.pagination
       a.btn#fist
          span
          | 首页
+   div.pagination
+      a.btn#fist
+         span
+         | 当前第
+         em 1
+         | 页
+   div.pagination
+      a.btn#next
+         span
+         | 上一页
+   div.pagination
+      a.btn#prev
+         span
+         | 下一页
    div.pagination
       a.btn
          span

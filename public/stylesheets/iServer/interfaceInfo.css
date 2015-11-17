@@ -1,0 +1,9 @@
+.InterfaceInfoTable {
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.tableHead {
+    background-color: #333333;
+    color: white;
+}

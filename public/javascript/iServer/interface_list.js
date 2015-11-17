@@ -114,9 +114,11 @@ $(document).ready(function (require){
         });
 
         ret.done(function(data){
-            if (data.success) {
+            if (data) {
                 alert('删除成功');
                 location.reload();
+            } else {
+                alert('删除失败');
             }
         });
 

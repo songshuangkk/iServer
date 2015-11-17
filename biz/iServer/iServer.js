@@ -19,7 +19,14 @@ exports.save_new_interface = function (req, res, next) {
     new_interface_data.interface_param      = data.interface_param;
 
     //进行插入mongodb
-    interface_service.insert_interface(new_interface_data);
+    interface_service.insert_interface(new_interface_data)
+        .then(function (data) {
+            console.log('true');
+            res.send(true);
+        }, function (error) {
+            console.log('error');
+            res.send(false);
+        });
 
 };
 
@@ -45,5 +52,10 @@ exports.find_interface = function (req, res, next) {
 exports.remove_interface = function (req, res, next) {
     var data = req.query;
 
-    interface_service.remove_interface(data, req, res);
+    interface_service.remove_interface(data, req, res)
+        .then(function (data) {
+            res.send(data);
+        }, function (err) {
+            res.send(false);
+        });
 };

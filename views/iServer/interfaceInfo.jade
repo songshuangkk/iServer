@@ -1,9 +1,7 @@
 //
    Created by songshuang on 15/11/17.
-doctype
-html
-   head
-      meta(charset="utf-8")
+extends  ../layout/header
+block headContent
       link(rel='stylesheet', href='/stylesheets/iServer/interfaceInfo.css')
       - var InterfaceInfo = JSON.parse(interfaceInfo)[0];
       - var InterfaceName = InterfaceInfo.interface_name;
@@ -11,6 +9,26 @@ html
       - var InterfaceParam = JSON.parse(InterfaceInfo.interface_param)[0];
       - var ReturnName = InterfaceInfo.return_name;
       - var ReturnType = InterfaceInfo.return_type;
-   body
 
-      h1 #{InterfaceParam}
+block bodyContent
+      div
+         div
+            img
+
+         div
+            div
+               table.InterfaceInfoTable(border="1")
+                  thead
+                     tr
+                        th.tableHead(colspan="10") 接口名称
+                        th.tableHead(colspan="10") 接口返回值
+                        th.tableHead(colspan="10") 参数类型
+                  tbody
+                     tr
+                        td(colspan="10") !{InterfaceName}
+                        td(colspan="10") !{ReturnName}
+                        td(colspan="10") !{ReturnType}
+                  tfoot
+                     tr
+                        td(colspan="10") 接口描述
+                        td(colspan="20") !{InterfaceDesc}

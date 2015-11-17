@@ -37,20 +37,20 @@ exports.insert_interface = function(data) {
     insert_data.return_name      = data.return_name;
     insert_data.interface_param  = JSON.stringify(data.interface_param);
 
-    try{
-        Interface_operator.insert_new_interface(insert_data, function(err) {
+
+    return new Promise(function (resolve, reject) {
+        Interface_operator.insert_new_interface(insert_data, function (err) {
             if (err) {
                 console.log('insert failed');
+                reject(err);
             } else {
+                console.log('insert success');
                 // 添加到redis中，用于搜索的时候直接查询结果
                 redisClient.set(insert_data.interface_name, insert_data);
-                console.log('insert success');
+                resolve(true);
             }
         });
-    } catch (e) {
-        console.error(e);
-    }
-
+    });
 };
 
 
@@ -65,15 +65,15 @@ exports.remove_interface = function(data, req, res){
     var param = {
       interface_name: data.interface_name
     };
-
-    Interface_operator.remove_interface(param, function(err) {
-        if (err) {
-            console.error('remove interface failed!');
-            throw err;
-        }
-        console.log('remove interface success!');
-        res.send({
-            success: true
+    console.log(param);
+    return new Promise(function (resolve, reject) {
+        Interface_operator.remove_interface(param, function(err) {
+            if (err) {
+                console.error('remove interface failed!');
+                reject(err);
+            }
+            console.log('remove interface success!');
+            resolve(true);
         });
     });
 };

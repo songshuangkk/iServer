@@ -19,8 +19,12 @@ function click_save_new_interface() {
    });
 
    ret.done(function(data){
-      if (data.success) {
+      console.log(data);
+      if (data) {
+         alert('创建接口文档成功');
          window.location="/iServer";
+      } else {
+         alert('创建接口文档失败');
       }
    });
 

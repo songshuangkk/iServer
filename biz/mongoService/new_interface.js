@@ -113,12 +113,10 @@ exports.update_interface = function(data, req, res){
 exports.find_interface = function(data){
 
     var param = {
-      interface_name: data
+        interface_name: data
     };
-
     return new Promise(function (resolve, reject) {
-        Interface_operator.find_interface(data, function(err, docs){
-            console.log('docs = ' + docs);
+        Interface_operator.find_interface(param, function(err, docs) {
             if (err){
                 console.error('find interface failed');
                 reject(err)

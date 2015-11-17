@@ -33,9 +33,12 @@ exports.find_interface = function (req, res, next) {
     var data = req.query.search_text;
     interface_service.find_interface(data)
         .then(function (data) {
-            return data;
+            res.render('iServer/interfaceInfo', {
+                interfaceInfo: JSON.stringify(data)
+            })
         }, function (error) {
             console.log(error);
+            res.render('iServer/noData');
         })
 };
 

@@ -3,6 +3,7 @@
  */
 
 var interface_service = require('../mongoService/new_interface');
+var redisClient         = require('../../config/redis_config');
 
 exports.interface_list = function (req, res, next) {
     interface_service.interface_list(req, res);
@@ -51,11 +52,28 @@ exports.find_interface = function (req, res, next) {
 
 exports.remove_interface = function (req, res, next) {
     var data = req.query;
-
     interface_service.remove_interface(data, req, res)
         .then(function (data) {
             res.send(data);
         }, function (err) {
             res.send(false);
+        });
+};
+
+exports.searchHotWord = function (req, res, next) {
+    var queryWorld = req.query.wd;
+
+    new Promise(function (resolve, reject) {
+        redisClient.get(queryWorld, (err, reply) => {
+            if (err) {
+                console.log('Error code: ' + err.code);
+                console.log('Redis to get Hot Worlds ERROR!');
+                reject(err);
+            } else {
+                resolve(reply);
+            }
+        });
+    }).then((data) => {
+            res.send(JSON.parse(data));
         });
 };

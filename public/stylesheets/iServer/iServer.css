@@ -14,8 +14,9 @@ body {
 /*搜索内容*/
 .input_search_text {
     margin-left: 5%;
-    width: 200px;
+    width: 300px;
     height: 30px;
+    padding: 5px;
 }
 
 /*搜索按钮*/
@@ -43,4 +44,32 @@ body {
     visibility: hidden;
     position: absolute;
     margin-top: 20px;
+}
+
+.bdsug-hidden {
+    height: auto;
+    width: 300px;
+    border: 1px solid #CCCCCC;
+    position: absolute;
+    margin-left: 38%;
+    display: none;
+}
+
+.bdsug-show {
+    height: auto;
+    width: 300px;
+    border: 1px solid #CCCCCC;
+    position: absolute;
+    margin-left: 38%;
+    display: block;
+}
+
+.bdsug-ul {
+    list-style: none;
+}
+
+.bdsug-overflow {
+    font: 14px arial;
+    line-height: 22px;
+    padding: 0 8px;
 }

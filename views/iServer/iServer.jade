@@ -3,7 +3,7 @@ extends  ../layout/header
 
 block headContent
    link(rel='stylesheet', href='/stylesheets/iServer/iServer.css')
-   include ../layout/home
+   script(src="/javascript/iServer/home.js")
 block bodyContent
    div(class='header')
 
@@ -14,3 +14,12 @@ block bodyContent
             form(class='search_form' action='/iServer/search')
                input(type='text' value='请输入您要查询的接口相关信息' class='input_search_text' name='search_text')
                input(type='submit' value='搜索' class='input_search_button')
+               if searchData !== void 0
+                  div.bdsug-show
+               else
+                  div.bdsug-none
+               ul.bdsug-ul
+                  li.bdsug-overflow
+                  li.bdsug-overflow
+                  li.bdsug-overflow
+                  li.bdsug-overflow

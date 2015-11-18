@@ -47,7 +47,7 @@ exports.insert_interface = function(data) {
             } else {
                 console.log('insert success');
                 // 添加到redis中，用于搜索的时候直接查询结果
-                redisClient.set(insert_data.interface_name, insert_data);
+                redisClient.set(insert_data.interface_name, JSON.stringify(insert_data));
                 resolve(true);
             }
         });
@@ -73,6 +73,7 @@ exports.remove_interface = function(data, req, res){
                 reject(err);
             }
             console.log('remove interface success!');
+            redisClient.remove(data.interface_name);
             resolve(true);
         });
     });

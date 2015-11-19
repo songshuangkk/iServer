@@ -74,6 +74,9 @@ exports.searchHotWord = function (req, res, next) {
             }
         });
     }).then((data) => {
-            res.send(JSON.parse(data));
+            if (data.length == 0) {
+                res.send(false);
+            }
+            res.send(data);
         });
 };

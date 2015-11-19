@@ -66,10 +66,12 @@ body {
 
 .bdsug-ul {
     list-style: none;
+    float: left;
+    padding-left: 1px;
 }
 
 .bdsug-overflow {
-    font: 14px arial;
+    font: 15px arial;
     line-height: 22px;
     padding: 0 8px;
 }

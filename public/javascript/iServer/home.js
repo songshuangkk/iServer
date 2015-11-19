@@ -18,8 +18,10 @@ function searchHotData(world) {
             url: url,
             type: 'GET'
         }).done((data) => {
-                console.log(data);
-                resolve(data);
+
+                if (data) {
+                    resolve(JSON.parse(data));
+                }
             })
             .error((error) => {
                 console.log(error);
@@ -27,6 +29,15 @@ function searchHotData(world) {
             })
     }).then(function (data) {
             // 进行渲染搜索返回的数据
+            if ($('#bdsug').hasClass('bdsug-show')) {
+                $('#bdsug').removeClass('bdsug-none').addClass('bdsug-show');
+
+                $('li.bdsug-overflow').each(function () {
+                    $(this).text(data.interface_name);
+                });
+            } else {
+                $('#bdsug').removeClass('bdsug-show').addClass('bdsug-none');
+            }
         });
 }
 

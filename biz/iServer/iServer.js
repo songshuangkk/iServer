@@ -61,19 +61,33 @@ exports.remove_interface = function (req, res, next) {
 };
 
 exports.searchHotWord = function (req, res, next) {
-    var queryWorld = req.query.wd;
+    var queryWorld = "*" + req.query.wd + "*";
 
     new Promise(function (resolve, reject) {
-        redisClient.get(queryWorld, (err, reply) => {
+        redisClient.multi().keys(queryWorld, (err, replies) => {
+            // 只取四个key
+            if (replies.length > 4) {
+                replies = replies.splice(0, 4);
+            }
+
+            redisClient.mget(replies, (err, data) => {
+                if (err) {
+                    reject(false);
+                } else {
+                    resolve(data);
+                }
+            });
+        }).exec((err, replies) => {
             if (err) {
-                console.log('Error code: ' + err.code);
-                console.log('Redis to get Hot Worlds ERROR!');
                 reject(err);
             } else {
-                resolve(reply);
+                console.log('keys: ' + replies);
             }
         });
     }).then((data) => {
+            if (!data) {
+                res.send(false);
+            }
             if (data.length == 0) {
                 res.send(false);
             }

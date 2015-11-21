@@ -18,7 +18,6 @@ function searchHotData(world) {
             url: url,
             type: 'GET'
         }).done((data) => {
-
                 if (data) {
                     resolve(JSON.parse(data));
                 }
@@ -30,13 +29,13 @@ function searchHotData(world) {
     }).then(function (data) {
             // 进行渲染搜索返回的数据
             if ($('#bdsug').hasClass('bdsug-show')) {
+                $('#bdsug').removeClass('bdsug-show').addClass('bdsug-none');
+            } else {
                 $('#bdsug').removeClass('bdsug-none').addClass('bdsug-show');
-
                 $('li.bdsug-overflow').each(function () {
+                    console.log(data.interface_name);
                     $(this).text(data.interface_name);
                 });
-            } else {
-                $('#bdsug').removeClass('bdsug-show').addClass('bdsug-none');
             }
         });
 }

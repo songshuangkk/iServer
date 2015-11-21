@@ -46,7 +46,7 @@ body {
     margin-top: 20px;
 }
 
-.bdsug-hidden {
+.bdsug-none {
     height: auto;
     width: 300px;
     border: 1px solid #CCCCCC;
